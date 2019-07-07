@@ -4,14 +4,14 @@
 // class has access to all its memebers
 // child class has access to protected and public memebers
 // object of a class has access to only pulblic members
-
+// object of a derived class does not have access to any base class member (only it inherits publictly, it has acces to public members of base class)
 
 
 /*-------------------------------------------------------------------------------------------------------
-					|	private   |	protected   |		public			 	|
+			|	private   |	protected   |		public			 	|
 --------------------------------------------------------------------------------------------------------
 inside class		|	 yes	  |	yes	    |		yes				|
-inside derived class|	  no      |	yes	    |		yes				|
+inside derived class	|	  no      |	yes	    |		yes				|
 upon class object	|	  no      |	no	    |		yes				|
 upon derived object	|	  no      |	no	    |	 	no (yes if publicly inherits)   |
 ---------------------------------------------------------------------------------------------------------*/
