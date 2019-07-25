@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 //having the class Complex i want to display the object in form 4 + i6 using << operstor
 
@@ -13,10 +14,7 @@ public:
 	~Complex() {}
 
 	//i can output it using this function
-	void display()
-	{
-		std::cout << this->real << "+i" << this->img << "\n";
-	}
+	void display() { std::cout << this->real << "+i" << this->img << "\n"; }
 
 	// to overload i need to rewrite the signature of the function just like for arithmetic operators
 	// the function has three specifics:
@@ -26,21 +24,25 @@ public:
 	friend std::ostream& operator<<(std::ostream& output, Complex const& c); //i am using const because i just display it
 
 	// the input stream overload is pretty much the same
-	friend std::istream& operator>>(std::istream& input, Complex & c);
+	friend std::istream& operator>>(std::istream& input, Complex & c);//this cannot be const otherwise cin will not be able to write into there
 };
 
-//this is the outside friend function
+// the outside friend functions 
 std::ostream& operator<<(std::ostream& output, Complex const& c) 
-{
-	return std::cout << c.real << "+i" << c.img; 
+{ 
+	return std::cout << c.real << "+i" << c.img;
 }
-
-
 std::istream& operator>>(std::istream& input, Complex & c)
 {
 	return std::cin >> c.real >> c.img;
 }
 
+//maybe for being more explicit how it actually works i will write it this way
+//std::ostream& operator<<(std::ostream& output, Complex const& c)
+//{
+//	output << c.real << "+i" << c.img; //the output that is one of the argument..
+//	return output; //is actually what i return
+//}
 
 
 int main()
@@ -50,7 +52,10 @@ int main()
 
 	//i can display, the point is i dont want to use this function, i want to use << directly
 	a.display();
-	std::cout << a << ", " << copy_a << "\n";
+	std::cout << a << ", " << copy_a << "\n"; // i can chain them
+
+	//being really explicit, i can use the function this way..
+	operator<<(std::cout, a);
 
 	std::cout << "-----------------\n";
 
@@ -58,7 +63,6 @@ int main()
 	std::cout << "enter the complex nr\n";
 	std::cin >> user_input;
 	std::cout << user_input;
-
-
+	
 	return 0;
 }
