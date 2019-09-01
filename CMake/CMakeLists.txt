@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.14)
+project(cmake_ex3)
+
+include_directories(lib) # directories where all H files sits
+
+set(CMAKE_CXX_STANDARD 17)
+
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(cmake_ex3 ${SOURCES})
