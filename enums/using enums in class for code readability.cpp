@@ -52,21 +52,6 @@ std::ostream& operator<<(std::ostream& os, FileName& const rhs)
 	return os;
 }
 
-
-//test_case = B
-//
-//switch (test_case)
-//{
-//case B:
-//	return
-//
-//}
-//
-//
-//
-//
-
-
 int main()
 {
 
@@ -83,18 +68,20 @@ int main()
 	std::cout << s3 << "\n";	
 	std::cout << s4 << "\n" << std::endl;
 
+	
+	//here i have perfectly readible code
 	if (s.get_extension() == FileName::has_extension::mp3)
 		std::cout << s << " is less then five\n";
-
+		//..
 	if (s1.get_extension() == FileName::has_extension::avi)
 		std::cout << s1 << " is less then ten\n";
-
+		//..
 	if (s2.get_extension() == FileName::has_extension::pdf)
 		std::cout << s2 << " is less then 15\n";
-
+		//..
 	if (s3.get_extension() == FileName::has_extension::rtf)
 		std::cout << s3 << " is less then 20\n";
-
+		//..
 	if (s4.get_extension() == FileName::has_extension::doc)
 		std::cout << s4 << " is more then 20\n";
 }
