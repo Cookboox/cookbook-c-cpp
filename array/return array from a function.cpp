@@ -1,27 +1,29 @@
 #include <iostream>
 
+
+
 //incorrect - returning local variable
-//int* return_array()
-//{
-//	int arr[5]{ 1,2,3,4,5 };
-//	return arr;
-//}
+int* return_array()
+{
+	int arr[5]{ 1,2,3,4,5 };
+	return arr;
+}
 
-////correct - make it static
-//int* return_array()
-//{
-//	static int arr[5]{ 1,2,3,4,5 };
-//	return arr;
-//}
+//correct - make it static
+int* return_array()
+{
+	static int arr[5]{ 1,2,3,4,5 };
+	return arr;
+}
 
-//correct - make it on heap
-//int* return_array()
-//{
-//	int* arr = new int[5];
-//	for (int i{0}; i <= 5; ++i)
-//		arr[i] = i;
-//	return arr;
-//}
+//correct - make it on heap - then delete it in the caller
+int* return_array()
+{
+	int* arr = new int[5];
+	for (int i{0}; i <= 5; ++i)
+		arr[i] = i;
+	return arr;
+}
 
 
 //correct - make it global (nonlocal)
