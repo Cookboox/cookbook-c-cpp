@@ -1,0 +1,24 @@
+come_from opak       go_to
+
+bebicuv diferencialni stroj
+
+// dokumentace pro c++
+doxygen
+standardese
+
+// zeptat se na projektovou dokumentaci
+veskera dokumentace je ziva, prepisuje se
+
+existuji tyto dokumenty
+A] design document (goes - co je cilem tohodle projektu, nongoes - co neni cilem projektu, definovat faze, prioritizace ukolu)
+
+B] project guidlines (shrnujici dokument kde se popisuje jakym zpusobem se pracuje, jake nastroje, jak se pojmenovavaji soubory, kam soubory patri, jak se pojemnovavaji tridy, funkce, co dokumentuju, jestli kazkou funkci, nebo jenom verejny rozhrani..) muze to byt hodne dlouho tak se to rozseka, takze se vycleni
+   1] code guidlines
+   2] version guidlines
+   3] atd..
+
+C] contributing
+D] licence
+F] readme
+C] contributing licence document (CLA) /autor kodu dava svoleni ke copywritu toho co napise, je to potreba k tomu, kdyz se neco vyviji pod opensource.
+D] promotion (webovka)
