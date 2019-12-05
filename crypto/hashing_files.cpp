@@ -1,22 +1,22 @@
-std::string calculateFileHash(const fs::path& pathToAnalyzedFile)
+	std::string calculateFileHash(const fs::path& pathToAnalyzedFile)
 	{
-		size_t fileLength{};
-		std::string fileContent{};
-
 		std::ifstream inputFile(pathToAnalyzedFile, std::ifstream::binary | std::ifstream::in);
 		if (!inputFile) {
 			return false;
-		} else {
-			inputFile.seekg(0, inputFile.end);
-			fileLength = inputFile.tellg();
-			fileContent.reserve(fileLength);
-			fileContent.assign((std::istreambuf_iterator<char>(inputFile)), (std::istreambuf_iterator<char>())); 
-			inputFile.close();
 		}
+
+		constexpr const std::size_t buffer_size{ 16384 };
+		char buffer[buffer_size];
 		unsigned char hash[SHA256_DIGEST_LENGTH];
+
 		SHA256_CTX sha256;
 		SHA256_Init(&sha256);
-		SHA256_Update(&sha256, fileContent.c_str(), fileContent.size());
+		
+		while (inputFile.good()) {
+			inputFile.read(buffer, buffer_size);
+			SHA256_Update(&sha256, buffer, inputFile.gcount());
+		}
+
 		SHA256_Final(hash, &sha256);
 
 		std::stringstream ss{};
