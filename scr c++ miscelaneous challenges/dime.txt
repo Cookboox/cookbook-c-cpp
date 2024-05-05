@@ -1,0 +1,6 @@
+Hello members of C/C++. Please I have a task in which I need help. The task is thus:
+We want to simulate throwing a die 30 times and record the scores.
+If we use a computer to keep a count of how many times each number was thrown, we could use an integer array(index range 1...6) instead of a tally chart. 
+In general, a die throw will give a score I, and we want to increment the count in the i-th element.
+TallyChart <-- TallyChart[i] + 1
+Write a program to simulate the throwing of a die 30 times. The results of the simulation should be printed as a table of scores (1 to 6) and frequencies.
